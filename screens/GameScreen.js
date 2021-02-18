@@ -5,8 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
 import MainButton from "../components/MainButton";
-
-import DefaultStyles from "../constants/default-styles";
+import TitleText from "../components/TitleText";
+import BodyText from "../components/BodyText";
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -22,8 +22,8 @@ const generateRandomBetween = (min, max, exclude) => {
 const renderListItem = (listLength, itemData) => {
   return (
     <View style={styles.listItem}>
-      <Text style={DefaultStyles.bodyText}>#{listLength - itemData.index}</Text>
-      <Text style={DefaultStyles.bodyText}>{itemData.item}</Text>
+      <BodyText>#{listLength - itemData.index}</BodyText>
+      <BodyText>{itemData.item}</BodyText>
     </View>
   );
 };
@@ -72,9 +72,9 @@ const GameScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <Text style={{ ...DefaultStyles.title, ...styles.opponentText }}>
+      <TitleText style={styles.opponentText }>
         Opponent's Guess
-      </Text>
+      </TitleText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <MainButton onPress={nextGuessHandler.bind(this, "lower")}>

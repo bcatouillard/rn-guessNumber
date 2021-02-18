@@ -1,15 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
 import MainButton from "../components/MainButton";
+import TitleText from "../components/TitleText";
+import BodyText from "../components/BodyText";
 
-import DefaultStyles from "../constants/default-styles";
 import Colors from "../constants/colors";
 
 const GameOverScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text style={DefaultStyles.title}>The game is Over !</Text>
+      <TitleText>The game is Over !</TitleText>
       <View style={styles.imageContainer}>
         <Image
           source={{
@@ -21,12 +22,12 @@ const GameOverScreen = (props) => {
         />
       </View>
       <View style={styles.textContainer}>
-        <Text style={{ ...DefaultStyles.bodyText, ...styles.resultText }}>
+        <BodyText style={styles.resultText }>
           Your phone needed{" "}
-          <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to
+          <BodyText style={styles.highlight}>{props.roundsNumber}</BodyText> rounds to
           guess the number{" "}
-          <Text style={styles.highlight}>{props.userNumber}</Text>
-        </Text>
+          <BodyText style={styles.highlight}>{props.userNumber}</BodyText>
+        </BodyText>
       </View>
       <MainButton onPress={props.onRestart}>New game</MainButton>
     </View>
